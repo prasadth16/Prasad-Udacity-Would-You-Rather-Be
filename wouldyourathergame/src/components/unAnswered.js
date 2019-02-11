@@ -7,7 +7,7 @@ class Unanswered extends Component {
                 const user = this.props.users.filter((user) => user.id === question.author);
 
                 return (<div key={question.id}>
-                    <QuestionDetails question={question} user={user[0]}></QuestionDetails>
+                    <QuestionDetails question={question} user={user[0]} needAnswer={true}></QuestionDetails>
                 </div>)
             })}
         </div>)

@@ -15,7 +15,7 @@ class Login extends Component {
 
     handleLogin = () => {
         let userid = document.getElementById("userSelect").value
-        if (userid != "und") {
+        if (userid !== "und") {
             this.props.dispatch(setAuthedUser(userid))
             this.setState({ shouldRedirect: true })
         }

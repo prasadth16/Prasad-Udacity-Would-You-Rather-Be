@@ -115,7 +115,7 @@ let questions = {
   }
 }
 
-function generateUID () {
+function generateUID() {
   return (
     Math.random()
       .toString(36)
@@ -126,7 +126,7 @@ function generateUID () {
   )
 }
 
-export function _getUsers () {
+export function _getUsers() {
   return new Promise((resolve, reject) => {
     setTimeout(
       () =>
@@ -138,7 +138,7 @@ export function _getUsers () {
   })
 }
 
-export function _getQuestions () {
+export function _getQuestions() {
   return new Promise((resolve, reject) => {
     setTimeout(
       () =>
@@ -150,7 +150,7 @@ export function _getQuestions () {
   })
 }
 
-function formatQuestion ({
+function formatQuestion({
   optionOneText,
   optionTwoText,
   author
@@ -170,7 +170,7 @@ function formatQuestion ({
   }
 }
 
-export function _saveQuestion (question) {
+export function _saveQuestion(question) {
   return new Promise((resolve, reject) => {
     const formattedQuestion = formatQuestion(question)
 
@@ -193,7 +193,7 @@ export function _saveQuestion (question) {
   })
 }
 
-export function _saveQuestionAnswer ({
+export function _saveQuestionAnswer({
   authedUser,
   qid,
   answer
@@ -227,7 +227,7 @@ export function _saveQuestionAnswer ({
   })
 }
 
-export function _saveNewUser ({ username, name }) {
+export function _saveNewUser({ username, name }) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       Object.keys(users).map(user => {

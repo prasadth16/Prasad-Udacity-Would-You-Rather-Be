@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import '../style/tab.css'
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import Answered from './answered'
 import Unanswered from './unAnswered'
+import Tabs from './tabs'
 class Home extends Component {
+
+
+    openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].styles.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].styles.backgroundColor = "";
+        }
+        document.getElementById(pageName).styles.display = "block";
+        elmnt.styles.backgroundColor = color;
+    }
 
     render() {
         if (this.props.users.filter(user => user.id === this.props.authedUser).length === 0)
@@ -13,23 +29,17 @@ class Home extends Component {
                 <Redirect to="/" />
             )
         return (
-            <Router>
-                <div>
-                    <div>
-                        <nav className="main-nav">
-                            <ul className="main-nav-ui">
-                                <li><Link to="/home/unanswered">UnAnswered Questions</Link></li>
-                                <li><Link to="/home/Answered">Answered Questions</Link></li>
-                            </ul>
-                        </nav>
+            <div>
+                <Tabs>
+                    <div label="Unanswered Questions">
+                        <Unanswered questions={this.props.unAnsweredQuestions} users={this.props.users} />!
+      </div>
+                    <div label="Answered Questions">
+                        <Answered questions={this.props.answeredQuestion} users={this.props.users} />
                     </div>
-                    <div>
-                        <Redirect to="/home/unanswered" />
-                        <Route path="/home/unanswered" exact strict render={() => <Unanswered questions={this.props.unAnsweredQuestions} users={this.props.users} />}></Route>
-                        <Route path="/home/Answered" exact strict render={() => <Answered questions={this.props.answeredQuestion} users={this.props.users} />}></Route>
-                    </div>
-                </div>
-            </Router>
+
+                </Tabs>
+            </div>
         )
     }
 }

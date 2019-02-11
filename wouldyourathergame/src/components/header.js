@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom'
 class Header extends Component {
     render() {
 
@@ -8,10 +8,10 @@ class Header extends Component {
                 <table width="100%">
                     <tbody>
                         <tr>
-                            <td><a href="www.google.com">Home</a></td>
-                            <td><a href="www.google.com">New Question</a></td>
-                            <td><a href="www.google.com">Leader Board</a></td>
-                            <td><a href="www.google.com">Logout</a></td>
+                            <td><Link to="/home">Home</Link></td>
+                            <td><Link to="/newquestion">New Question</Link></td>
+                            <td><Link to="/leaderboard">Leader Board</Link></td>
+                            <td><a href="/logout">Logout</a></td>
                         </tr>
                     </tbody>
                 </table>

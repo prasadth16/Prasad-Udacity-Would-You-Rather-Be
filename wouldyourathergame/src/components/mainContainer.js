@@ -6,6 +6,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginControl from './login'
 import HomeControll from './home'
 import Header from './header'
+import NewQuestionControl from './newQuestion'
+import ChooseAnswerControl from './chooseOption'
+import ViewPoleControl from './viewPole'
+import LeaderBoardControl from './leaderBoard'
+import LogoutControl from './logout'
+
 class MainContainer extends Component {
 
     componentDidMount() {
@@ -20,11 +26,16 @@ class MainContainer extends Component {
                 <div>
                     <div>
                         <Header />
-                        <hr styles="border: 100px solid blue;"/>
+                        <hr styles="border: 100px solid blue;" />
                     </div>
                     <div>
-                        <Route path='/' exact component={LoginControl} />
-                        <Route path='/home' exact component={HomeControll} />
+                        <Route path='/' exact strict component={LoginControl} />
+                        <Route path='/home' exact strict component={HomeControll} />
+                        <Route path='/newquestion' exact strict component={NewQuestionControl} />
+                        <Route path='/chooseoption/:id' exact component={ChooseAnswerControl} />
+                        <Route path='/viewpole/:id' exact component={ViewPoleControl} />
+                        <Route path="/leaderboard" exact strict component={LeaderBoardControl} />
+                        <Route path="/logout" exact strict component={LogoutControl} />
                     </div>
                 </div>
             </Router>
