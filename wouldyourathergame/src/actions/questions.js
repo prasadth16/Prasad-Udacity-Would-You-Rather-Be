@@ -48,7 +48,7 @@ export function saveAnswer(answer, qid, authedUser) {
 
     return (dispatch) => {
         return saveQuestionAnswer(saveObject)
-            .then((res) => {
+            .then(() => {
                 dispatch(saveAnswerAction)
             })
             .catch(() => {

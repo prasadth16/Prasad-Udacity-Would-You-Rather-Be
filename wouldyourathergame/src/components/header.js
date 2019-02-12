@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 class Header extends Component {
     render() {
 
@@ -11,6 +13,9 @@ class Header extends Component {
                             <td><Link to="/home">Home</Link></td>
                             <td><Link to="/newquestion">New Question</Link></td>
                             <td><Link to="/leaderboard">Leader Board</Link></td>
+                            {this.props.userNames.filter(user => user.id === this.props.authedUser).length !== 0 &&
+                                <td>Hello {this.props.userNames.filter(user => user.id === this.props.authedUser)[0].name}</td>
+                            }
                             <td><a href="/logout">Logout</a></td>
                         </tr>
                     </tbody>
@@ -21,4 +26,14 @@ class Header extends Component {
     }
 
 }
-export default Header
+function mapStateToObject({ users, authedUser }) {
+    let userNames = []
+    Object.entries(users).forEach((entry) => userNames.push(entry[1]))
+
+    return {
+        userNames: userNames,
+        authedUser: authedUser
+    }
+}
+const HeaderControl = connect(mapStateToObject)(Header)
+export default HeaderControl
