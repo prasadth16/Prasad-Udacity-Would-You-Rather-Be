@@ -18,16 +18,15 @@ export function saveNewQuestion(opOneText, opTwoText, authedUser) {
         optionTwoText: opTwoText,
         author: authedUser
     }
-    let newQuestion = formatQuestion(question)
-    let saveQuestionAction = {
-        type: SAVE_NEW_QUESTION,
-        newQuestion,
-    }
 
     return (dispatch) => {
         return saveQuestion(question)
-            .then((res) => {
-                dispatch(saveQuestionAction)
+            .then((newQuestion) => {
+
+                dispatch({
+                    type: SAVE_NEW_QUESTION,
+                    newQuestion
+                })
             })
             .catch(() => {
                 alert('There was an error. Try again.')

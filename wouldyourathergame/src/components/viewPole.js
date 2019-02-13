@@ -42,7 +42,7 @@ class ViewPole extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col"><ProgrssBar percentage={(this.props.optionOneVotes * 100) / this.props.totalVotes} /></div>
+                                <div className="col"><ProgrssBar percentage={Math.floor((this.props.optionOneVotes * 100) / this.props.totalVotes)} /></div>
                             </div>
                             <div className="row">
                                 <div className="col"><em>{this.props.optionOneVotes} out Of {this.props.totalVotes} Votes</em></div>
@@ -58,7 +58,7 @@ class ViewPole extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col"><ProgrssBar percentage={(this.props.optionTwoVotes * 100) / this.props.totalVotes} /></div>
+                                <div className="col"><ProgrssBar percentage={Math.floor((this.props.optionTwoVotes * 100) / this.props.totalVotes)} /></div>
                             </div>
                             <div className="row">
                                 <div className="col"><em>{this.props.optionTwoVotes} Out Of {this.props.totalVotes} Votes</em></div>

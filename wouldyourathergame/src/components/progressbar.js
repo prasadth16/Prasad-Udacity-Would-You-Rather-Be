@@ -4,8 +4,8 @@ import '../style/progrssbar.css'
 const ProgrssBar = (props) => {
     return (
         <div className="progrss-bar">
-        <strong>{props.percentage}%</strong>
-            <div className="filler" styles={{ width: `${props.percentage}%;` }} />
+            <div className="filler" style={{ width: `${props.percentage}%` }} />
+            <span className="floating-text">{props.percentage}%</span>
         </div>
     )
 }
