@@ -11,7 +11,7 @@ class Header extends Component {
                     <tbody>
                         <tr>
                             <td><Link to="/home">Home</Link></td>
-                            <td><Link to="/newquestion">New Question</Link></td>
+                            <td><Link to="/add">New Question</Link></td>
                             <td><Link to="/leaderboard">Leader Board</Link></td>
                             {this.props.userNames.filter(user => user.id === this.props.authedUser).length !== 0 &&
                                 <td>Hello {this.props.userNames.filter(user => user.id === this.props.authedUser)[0].name}</td>

@@ -31,9 +31,9 @@ class MainContainer extends Component {
                     <div>
                         <Route path='/' exact strict component={LoginControl} />
                         <Route path='/home' exact strict component={HomeControll} />
-                        <Route path='/newquestion' exact strict component={NewQuestionControl} />
+                        <Route path='/add' exact strict component={NewQuestionControl} />
                         <Route path='/chooseoption/:id' exact component={ChooseAnswerControl} />
-                        <Route path='/viewpole/:id' exact component={ViewPoleControl} />
+                        <Route path='/question/:id' exact component={ViewPoleControl} />
                         <Route path="/leaderboard" exact strict component={LeaderBoardControl} />
                         <Route path="/logout" exact strict component={LogoutControl} />
                     </div>

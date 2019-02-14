@@ -11,7 +11,7 @@ class ChooseAnswer extends Component {
     }
 
     componentDidMount() {
-        this.setState({ url: "/viewpole/" + this.props.id })
+        this.setState({ url: "/question/" + this.props.id })
     }
     submitAnswer = () => {
         let answer

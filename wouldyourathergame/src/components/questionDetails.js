@@ -11,7 +11,7 @@ class QuestionDetails extends Component {
             this.setState({ url: "/chooseoption/" + this.props.question.id })
         }
         else {
-            this.setState({ url: "/viewpole/" + this.props.question.id })
+            this.setState({ url: "/question/" + this.props.question.id })
         }
     }
     render() {

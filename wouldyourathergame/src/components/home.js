@@ -53,6 +53,12 @@ function processQuestions({ questions, authedUser, users }) {
     answeredQuestion = allQuestions.filter(question => question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser))
     unAnsweredQuestions = allQuestions.filter(question => !question.optionOne.votes.includes(authedUser) && !question.optionTwo.votes.includes(authedUser))
     Object.entries(users).forEach((entry) => userNames.push(entry[1]))
+    answeredQuestion.sort((a, b) => {
+        return (b.timestamp - a.timestamp)
+    })
+    unAnsweredQuestions.sort((a, b) => {
+        return (b.timestamp - a.timestamp)
+    })
     return ({
         answeredQuestion: answeredQuestion,
         unAnsweredQuestions: unAnsweredQuestions,
