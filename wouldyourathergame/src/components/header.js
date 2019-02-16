@@ -16,7 +16,10 @@ class Header extends Component {
                             {this.props.userNames.filter(user => user.id === this.props.authedUser).length !== 0 &&
                                 <td>Hello {this.props.userNames.filter(user => user.id === this.props.authedUser)[0].name}</td>
                             }
-                            <td><a href="/logout">Logout</a></td>
+                            {this.props.userNames.filter(user => user.id === this.props.authedUser).length == 0 &&
+                                <td><Link to="/login">Log-In</Link></td>
+                            }
+                            <td><Link to="/logout">Logout</Link></td>
                         </tr>
                     </tbody>
                 </table>

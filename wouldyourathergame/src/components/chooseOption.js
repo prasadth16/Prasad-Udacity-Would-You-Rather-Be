@@ -22,7 +22,7 @@ class ChooseAnswer extends Component {
     render() {
         if (this.props.userNames.filter(user => user.id === this.props.authedUser).length === 0)
             return (
-                <Redirect to="/" />
+                <Redirect to="/login" />
             )
         return (
             <div>
