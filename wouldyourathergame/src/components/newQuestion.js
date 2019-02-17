@@ -10,6 +10,7 @@ class NewQuestion extends Component {
         const optOneText = document.getElementById("option1").value
         const optTwoText = document.getElementById("option2").value
         this.props.dispatch(saveNewQuestion(optOneText, optTwoText, this.props.authedUser))
+        this.props.history.push("/home")
     }
 
     render() {

@@ -8,7 +8,7 @@ class QuestionDetails extends Component {
     }
     componentDidMount() {
         if (this.props.needAnswer) {
-            this.setState({ url: "/chooseoption/" + this.props.question.id })
+            this.setState({ url: "/questions/" + this.props.question.id })
         }
         else {
             this.setState({ url: "/question/" + this.props.question.id })

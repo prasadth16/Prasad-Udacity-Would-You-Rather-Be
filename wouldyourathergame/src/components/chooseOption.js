@@ -19,6 +19,9 @@ class ChooseAnswer extends Component {
 
         this.props.dispatch(saveAnswer(answer, this.props.question.id, this.props.authedUser))
     }
+    chooseOneOption=(id)=>{
+        document.getElementById(id).checked = false;
+    }
     render() {
         
         return (
@@ -37,12 +40,12 @@ class ChooseAnswer extends Component {
                             </div>
                             <div className="row" styles="height: 41px;">
                                 <div className="col">
-                                    <div className="form-check"><input className="form-check-input" type="checkbox" id="option1" /><label className="form-check-label" >{this.props.question.optionOne.text}</label></div>
+                                    <div className="form-check"><input className="form-check-input" type="checkbox" id="option1" onClick={()=>this.chooseOneOption("option2")} /><label className="form-check-label" >{this.props.question.optionOne.text}</label></div>
                                 </div>
                             </div>
                             <div className="row" styles="height: 44px;">
                                 <div className="col">
-                                    <div className="form-check"><input className="form-check-input" type="checkbox" id="option2" /><label className="form-check-label" >{this.props.question.optionTwo.text}</label></div>
+                                    <div className="form-check"><input className="form-check-input" type="checkbox" id="option2" onClick={()=>this.chooseOneOption("option1")}/><label className="form-check-label" >{this.props.question.optionTwo.text}</label></div>
                                 </div>
                             </div>
                             <div className="row" styles="height: 43px;">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { getinitialData } from '../actions/shared'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import LoginControl from './login'
 import HomeControll from './home'
@@ -19,9 +19,8 @@ class MainContainer extends Component {
     render() {
 
         return (
-            <Router>
-
-                <div>
+            <BrowserRouter>
+                < div >
                     <div>
                         <Header />
                         <hr styles="border: 100px solid blue;" />
@@ -30,17 +29,18 @@ class MainContainer extends Component {
                         <Switch>
                             <Route path='/login' exact strict component={LoginControl} />
                             <Route path='/' exact strict component={Welcome} />
-                            <ProtectedRoute path='/home' exact strict component={HomeControll} />
-                            <ProtectedRoute path='/add' exact strict component={NewQuestionControl} />
-                            <ProtectedRoute path='/chooseoption/:id' exact component={ChooseAnswerControl} />
-                            <ProtectedRoute path='/question/:id' exact component={ViewPoleControl} />
-                            <ProtectedRoute path="/leaderboard" exact strict component={LeaderBoardControl} />
-                            <ProtectedRoute path="/logout" exact strict component={SignOffControl} />
+                            <ProtectedRoute exact strict path="/home" component={HomeControll} />
+                            <ProtectedRoute exact strict path="/add" component={NewQuestionControl} />
+                            <ProtectedRoute exact strict path="/questions/:id" component={ChooseAnswerControl} />
+                            <ProtectedRoute exact strict path="/question/:id" component={ViewPoleControl} />
+                            <ProtectedRoute exact strict path="/leaderboard" component={LeaderBoardControl} />
+                            <ProtectedRoute exact strict path="/logout" component={SignOffControl} />
                             <Route path="*" component={PageNotFound} />
                         </Switch>
                     </div>
-                </div>
-            </Router>
+                </div >
+            </BrowserRouter>
+
         )
     }
 }

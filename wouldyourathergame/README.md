@@ -1,6 +1,6 @@
 
 In the project directory, you can run:
-### `npm install`
+### `npm install --save redux react-redux react-router-dom redux-thunk`
 Installs the required depedencies
 
 ### `npm start`
