@@ -20,10 +20,7 @@ class ChooseAnswer extends Component {
         this.props.dispatch(saveAnswer(answer, this.props.question.id, this.props.authedUser))
     }
     render() {
-        if (this.props.userNames.filter(user => user.id === this.props.authedUser).length === 0)
-            return (
-                <Redirect to="/login" />
-            )
+        
         return (
             <div>
                 <div className="container" styles="width: 752px;height: 209px;">

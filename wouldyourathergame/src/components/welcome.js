@@ -15,7 +15,7 @@ class Welcome extends Component {
         }
         return (
             <div>
-                <h1>Hello and Welcome to Pole game!!! Please Log-In to continue....</h1>
+                <h1>Hello and Welcome to the game of Polls!!! Please Log-In to continue....</h1>
             </div>
         )
     }

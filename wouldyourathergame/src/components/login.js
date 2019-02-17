@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { setAuthedUser } from '../actions/currentUser'
+import Authentication from '../util/auth'
 
 import '../style/login.min.css'
 import '../style/login.styles.min.css'
@@ -16,6 +17,7 @@ class Login extends Component {
     handleLogin = () => {
         let userid = document.getElementById("userSelect").value
         if (userid !== "und") {
+            Authentication.login();
             this.props.dispatch(setAuthedUser(userid))
             this.setState({ shouldRedirect: true })
         }

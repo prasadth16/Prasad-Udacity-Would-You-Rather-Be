@@ -24,10 +24,6 @@ class Home extends Component {
     }
 
     render() {
-        if (this.props.users.filter(user => user.id === this.props.authedUser).length === 0)
-            return (
-                <Redirect to="/login" />
-            )
         return (
             <div>
                 <Tabs>

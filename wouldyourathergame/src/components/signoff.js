@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../actions/currentUser'
+import Authentication from '../util/auth'
 class SignOff extends Component {
     componentDidMount() {
+        Authentication.logout()
         this.props.dispatch(logout())
     }
     render() {

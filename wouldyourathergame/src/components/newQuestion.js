@@ -14,10 +14,7 @@ class NewQuestion extends Component {
 
     render() {
 
-        if (this.props.users.filter(user => user.id === this.props.authedUser).length === 0)
-            return (
-                <Redirect to="/login" />
-            )
+        
         return (<div>
             <div>
                 <ul className="nav nav-tabs"></ul>

@@ -16,10 +16,7 @@ class ViewPole extends Component {
         })
     }
     render() {
-        if (this.props.userNames.filter(user => user.id === this.props.authedUser).length === 0)
-            return (
-                <Redirect to="/login" />
-            )
+        
         return (
             <div>
                 <div className="container" styles="width: 620px;height: 329px;">
