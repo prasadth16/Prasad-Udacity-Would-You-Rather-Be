@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import { getinitialData } from '../actions/shared'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
+import { getinitialData } from '../actions/shared'
 import LoginControl from './login'
 import HomeControll from './home'
 import Header from './header'
@@ -15,6 +15,8 @@ import Welcome from './welcome'
 import ProtectedRoute from './protectedRoute'
 import PageNotFound from './pgnotfound'
 class MainContainer extends Component {
+
+    
 
     render() {
 

@@ -16,7 +16,13 @@ class ViewPole extends Component {
         })
     }
     render() {
-        
+        {
+            if (typeof this.props.question === 'undefined') {
+                return (
+                    <Redirect to="/pagenotfound" />)
+            }
+        }
+
         return (
             <div>
                 <div className="container" styles="width: 620px;height: 329px;">
@@ -76,13 +82,16 @@ function mapStateToProps({ questions, users, authedUser }, props) {
             question = entry[1] : ''
     )
     let userNames = []
-    Object.entries(users).forEach((entry) => userNames.push(entry[1]))
-    const user = userNames.filter(user => user.id === question.author)
     let totalVotes
     let optionOneVotes
     let optionTwoVotes
     let myVote = 0
+    let user = []
+
+
     if (typeof question !== 'undefined') {
+        Object.entries(users).forEach((entry) => userNames.push(entry[1]))
+        user = userNames.filter(user => user.id === question.author)
         totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
         optionOneVotes = question.optionOne.votes.length
         optionTwoVotes = question.optionTwo.votes.length

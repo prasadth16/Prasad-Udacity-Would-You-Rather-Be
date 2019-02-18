@@ -31,18 +31,30 @@ class Login extends Component {
             document.getElementById("avtImage").src = ""
     }
     render() {
-        if (this.state.shouldRedirect) {
+        if (this.state.shouldRedirect && typeof this.props.location.state === 'undefined') {
+
             return (
-                <Redirect to={this.state.path}></Redirect>
+                <Redirect to={{
+                    pathname: this.state.path,
+                    state: { referrer: this.props.location.pathname }
+                }}></Redirect>
+            )
+        }
+        else if (this.state.shouldRedirect) {
+            return (
+                <Redirect to={{
+                    pathname: this.props.location.state.referrer,
+                    state: { referrer: this.props.location.pathname }
+                }}></Redirect>
             )
         }
         return (
             <div className="contact-clean">
                 <form method="post" styles="height: 400px;" >
-                <h2 className="text-center">Please Log-In to Continue...</h2>
+                    <h2 className="text-center">Please Log-In to Continue...</h2>
                     <h2 className="text-center">Who Are You?</h2>
                     <div className="form-row">
-                        <div className="col" styles="width: 138px;max-width: 177px;"><img id="avtImage" styles="padding: 10px;opacity: 0.67;border-radius: 50%;"height="42" width="42" /></div>
+                        <div className="col" styles="width: 138px;max-width: 177px;"><img id="avtImage" styles="padding: 10px;opacity: 0.67;border-radius: 50%;" height="42" width="42" /></div>
                         <div className="col">
                             <div className="dropdown"><select className="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" styles="width: 198px;" id="userSelect" onChange={() => this.setImageSource()}><option key="und" value="und">Select User</option>
                                 {this.props.userNames.map(userName => (

@@ -9,8 +9,14 @@ class NewQuestion extends Component {
     addQuestion = () => {
         const optOneText = document.getElementById("option1").value
         const optTwoText = document.getElementById("option2").value
+        if(optOneText && optTwoText)
+        {
         this.props.dispatch(saveNewQuestion(optOneText, optTwoText, this.props.authedUser))
         this.props.history.push("/home")
+        }
+        else{
+            alert("Please complete option1 and option2")
+        }
     }
 
     render() {

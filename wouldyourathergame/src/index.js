@@ -6,9 +6,9 @@ import reducer from './reducers'
 import middleware from './middleware'
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './components/App'
+import AppControll from './components/App'
 
 const store = createStore(reducer, middleware)
 
-ReactDOM.render(<Provider store={store}> <App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}> <AppControll /></Provider>, document.getElementById('root'));
 

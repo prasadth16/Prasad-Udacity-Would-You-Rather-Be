@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import MainContainerController from './mainContainer'
+import { getinitialData } from '../actions/shared'
+import { connect } from 'react-redux'
 
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(getinitialData())
+}
   render() {
     return (
 
@@ -16,4 +22,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps({ loading }) {
+  return {
+      loading: loading,
+  }
+}
+const AppControll=connect(mapStateToProps)(App)
+export default AppControll;

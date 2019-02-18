@@ -4,9 +4,7 @@ import { getinitialData } from '../actions/shared'
 
 class Welcome extends Component {
 
-    componentDidMount() {
-        this.props.dispatch(getinitialData())
-    }
+    
     render() {
         {if(this.props.loading)
             return(
@@ -20,10 +18,6 @@ class Welcome extends Component {
         )
     }
 }
-function mapStateToProps({ loading }) {
-    return {
-        loading: loading,
-    }
-}
-const WelcomeControl = connect(mapStateToProps)(Welcome)
+
+const WelcomeControl = connect()(Welcome)
 export default WelcomeControl
